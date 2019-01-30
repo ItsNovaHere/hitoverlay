@@ -1,0 +1,80 @@
+.Up {
+    transform : rotate(0deg);
+}
+
+.UpRight {
+    transform : rotate(45deg);
+}
+
+.Right {
+    transform: rotate(90deg);
+}
+
+.DownRight {
+    transform: rotate(135deg);
+}
+
+.Down {
+    transform: rotate(180deg);
+}
+
+.DownLeft {
+    transform: rotate(225deg);
+}
+
+.Left {
+    transform: rotate(270deg);
+}
+
+.UpLeft {
+    transform: rotate(315deg);
+}
+
+.Note {
+    position: absolute;
+    width: 100px;
+    --fadeTime : 500ms;
+    animation: fadeOut var(--fadeTime) ease;
+    z-index: -1;
+}
+
+.Layer0 {
+    top : calc(110px * 3);
+}
+
+.Layer1 {
+    top : calc(110px * 2);
+}
+
+.Layer2 {
+    top : calc(110px * 1);
+}
+
+.Line0{
+    left : calc(110px * 1);
+}
+
+.Line1{
+    left : calc(110px * 2);
+}
+
+.Line2{
+    left : calc(110px * 3);
+}
+
+.Line3{
+    left : calc(110px * 4);
+}
+
+.HitLine {
+    width: 100px;
+    transform: var(--direction);
+    position: absolute;
+    z-index: 10;
+    animation: fadeOut var(--fadeTime) ease;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
