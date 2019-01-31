@@ -1,4 +1,4 @@
 # hitoverlay
 The link is `https://itsnovahere.github.io/hitoverlay`
 	
-	You can change the fade out time by putting `?fadeTime=[Number Of Milliseconds]` at the end of the link.
+	You can change the fade out time by putting `?fadeTime=[Number Of Milliseconds]` at the end of the link. Keep this above 100.
