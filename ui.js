@@ -11,7 +11,12 @@ const ui = {
             ui.deleteNote(document.getElementsByClassName(`HitLine Layer${fullStatus.noteCut.noteLayer} Line${fullStatus.noteCut.noteLine}`)[0]);
         }
 
-        hitLine.src = "hit.png";
+        if(fullStatus.noteCut.cutDirectionDeviation < -15 || fullStatus.noteCut.cutDirectionDeviation > 15) {
+            hitLine.src = "hit.png";
+        } else {
+            hitLine.src = "hitbad.png";
+        }
+
         hitLine.classList.add("HitLine");
         hitLine.classList.add(`Layer${fullStatus.noteCut.noteLayer}`);
         hitLine.classList.add(`Line${fullStatus.noteCut.noteLine}`);
@@ -25,6 +30,8 @@ const ui = {
                     bloq.src = "bloqda.png";
                     break;
             }
+
+            hitLine.style.setProperty("display", "none");
         } else {
             switch(fullStatus.noteCut.saberType){
                 case "SaberA":
@@ -41,7 +48,6 @@ const ui = {
         bloq.classList.add(`Line${fullStatus.noteCut.noteLine}`);
         bloq.classList.add(fullStatus.noteCut.noteCutDirection);
         bloq.style.setProperty("--fadeTime",  `${fadeTime}ms`);
-        console.log(fullStatus.noteCut);
 
         document.body.appendChild(bloq);
         document.body.appendChild(hitLine);

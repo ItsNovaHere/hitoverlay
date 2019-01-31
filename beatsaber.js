@@ -7,8 +7,7 @@ const events = {
     noteCut(data, fullStatus){
             ui.noteCut(data, fullStatus);
 
-    }
-    ,
+    },
     songStart(data) {
 
     },
