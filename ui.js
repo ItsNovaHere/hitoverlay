@@ -1,5 +1,6 @@
 const ui = {
     var : fadeTime = parseInt(new URLSearchParams(window.location.search).get("fadeTime") || "500"),
+    var : showStrict = parseInt(new URLSearchParams(window.location.search).get("showStrict") || "0"),
     onGameConnected(data){
         console.log("Connected to Beat Saber v" + data.game.gameVersion);
     },
@@ -11,10 +12,10 @@ const ui = {
             ui.deleteNote(document.getElementsByClassName(`HitLine Layer${fullStatus.noteCut.noteLayer} Line${fullStatus.noteCut.noteLine}`)[0]);
         }
 
-        if(fullStatus.noteCut.cutDirectionDeviation < -15 || fullStatus.noteCut.cutDirectionDeviation > 15) {
-            hitLine.src = "hit.png";
+        if((fullStatus.noteCut.cutDirectionDeviation > -15 && fullStatus.noteCut.cutDirectionDeviation < 15) && showStrict == 1) {
+            hitLine.src = "images/HitGood.png";
         } else {
-            hitLine.src = "hitbad.png";
+            hitLine.src = "images/Hit.png";
         }
 
         hitLine.classList.add("HitLine");
@@ -24,10 +25,10 @@ const ui = {
         if(fullStatus.noteCut.noteCutDirection == "Any"){
             switch(fullStatus.noteCut.saberType){
                 case "SaberA":
-                    bloq.src = "bloqdb.png";
+                    bloq.src = "images/BBloqDot.png";
                     break;
                 case "SaberB":
-                    bloq.src = "bloqda.png";
+                    bloq.src = "images/RBloqDot.png";
                     break;
             }
 
@@ -35,10 +36,10 @@ const ui = {
         } else {
             switch(fullStatus.noteCut.saberType){
                 case "SaberA":
-                    bloq.src = "bloqb.png";
+                    bloq.src = "images/BBloq.png";
                     break;
                 case "SaberB":
-                    bloq.src = "bloqa.png";
+                    bloq.src = "images/RBloq.png";
                     break;
             }
         }
@@ -54,8 +55,6 @@ const ui = {
 
         hitLine.style.setProperty("transform", `rotate(${-fullStatus.noteCut.cutDirectionDeviation + ui.getDirectionValue(fullStatus.noteCut.noteCutDirection)}deg)`);
         hitLine.style.setProperty("--fadeTime", `${fadeTime + 100}ms`);
-
-        //ui.applyBlockPosition(fullStatus.noteCut, hitLine);
 
         console.log(`${fadeTime + 100}ms`);
         setTimeout(function(){ui.deleteNote(bloq, hitLine);}, fadeTime);
@@ -75,24 +74,6 @@ const ui = {
             case "DownLeft": return 225;
             case "Left" : return 270;
             case "UpLeft": return 315;
-        }
-    },
-
-    applyBlockPosition(data, block){
-        switch(data.noteCutDirection){
-            case "Up":
-                block.style.setProperty("left", `${((data.noteLine + 1) * 105) + (data.cutPoint[0] * 50)}px`);
-                console.log(`${(data.noteLine * 100) + (data.cutPoint[0] * 25)}px`);
-                break;
-            case "UpRight": break;
-            case "Right": break;
-            case "DownRight": break;
-            case "Down":
-                block.style.setProperty("left", `${((data.noteLine + 1) * 105) + (data.cutPoint[0] * 50)}px`);
-                break;
-            case "DownLeft": break;
-            case "Left" : break;
-            case "UpLeft": break;
         }
     }
 }
