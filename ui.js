@@ -25,10 +25,10 @@ const ui = {
         if(fullStatus.noteCut.noteCutDirection == "Any"){
             switch(fullStatus.noteCut.saberType){
                 case "SaberA":
-                    bloq.src = "images/BBloqDot.png";
+                    bloq.src = "images/RBloqDot.png";
                     break;
                 case "SaberB":
-                    bloq.src = "images/RBloqDot.png";
+                    bloq.src = "images/BBloqDot.png";
                     break;
             }
 
@@ -36,10 +36,10 @@ const ui = {
         } else {
             switch(fullStatus.noteCut.saberType){
                 case "SaberA":
-                    bloq.src = "images/BBloq.png";
+                    bloq.src = "images/RBloq.png";
                     break;
                 case "SaberB":
-                    bloq.src = "images/RBloq.png";
+                    bloq.src = "images/BBloq.png";
                     break;
             }
         }
