@@ -1,8 +1,12 @@
 const ui = {
     var : fadeTime = parseInt(new URLSearchParams(window.location.search).get("fadeTime") || "500"),
     var : showStrict = parseInt(new URLSearchParams(window.location.search).get("showStrict") || "0"),
+    var : showGrid = parseInt(new URLSearchParams(window.location.search).get("showGrid") || "1"),
     onGameConnected(data){
         console.log("Connected to Beat Saber v" + data.game.gameVersion);
+        if(showGrid == "0"){
+            document.getElementsByTagName("Grid")[0].remove();
+        }
     },
     noteCut(data, fullStatus){
         let bloq = document.createElement("img");
