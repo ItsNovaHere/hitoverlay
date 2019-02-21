@@ -64,11 +64,11 @@ const ui = {
         setTimeout(function(){ui.deleteNote(bloq, hitLine);}, fadeTime);
     },
     deleteNote(note, line){
-        if(document.body.contains(note){
+        if(document.body.contains(note)){
             document.body.removeChild(note);
         }
         if(line) setTimeout(function(){
-                if(document.body.contains(line){
+                if(document.body.contains(line)){
                     document.body.removeChild(line);
                 }
             }, 100);
@@ -86,4 +86,4 @@ const ui = {
             case "UpLeft": return 315;
         }
     }
-}
+};
