@@ -25,7 +25,7 @@ function connect(){
 
     socket.onclose = () => {
         setTimeout(connect, 5000);
-    }
+    };
 }
 
 connect();
