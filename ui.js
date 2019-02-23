@@ -64,8 +64,14 @@ const ui = {
         setTimeout(function(){ui.deleteNote(bloq, hitLine);}, fadeTime);
     },
     deleteNote(note, line){
-        document.body.removeChild(note);
-        if(line) setTimeout(function(){document.body.removeChild(line);}, 100);
+        if(document.body.contains(note)){
+            document.body.removeChild(note);
+        }
+        if(line) setTimeout(function(){
+                if(document.body.contains(line)){
+                    document.body.removeChild(line);
+                }
+            }, 100);
     },
 
     getDirectionValue(direction){
@@ -80,4 +86,4 @@ const ui = {
             case "UpLeft": return 315;
         }
     }
-}
+};

@@ -18,14 +18,14 @@ function connect(){
     socket.onmessage = (message) => {
         const json = JSON.parse(message.data);
 
-
+        if(["hello", "noteCut", "songStart"].some(a => a=== json.event)) {
             events[json.event](json.status, json);
-
+        }
     };
 
     socket.onclose = () => {
         setTimeout(connect, 5000);
-    }
+    };
 }
 
 connect();
