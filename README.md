@@ -1,6 +1,8 @@
 # Hit Overlay
 *A note overlay for Beat Saber streams.*
 
+**REQUIRES** [**HTTP Status**](https://github.com/opl-/beatsaber-http-status)
+
 ### The link is [`https://itsnovahere.github.io/hitoverlay`](https://itsnovahere.github.io/hitoverlay)
 
 ###### *don't make a fucky wucky. make sure you put it in obs*
